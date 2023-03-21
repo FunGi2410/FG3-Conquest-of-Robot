@@ -17,6 +17,7 @@ public class Player : LivingEntity
     private bool moving;
 
     public float moveSpeed;
+    [SerializeField]
     Vector2 moveInput;
 
     PlayerController playerController;

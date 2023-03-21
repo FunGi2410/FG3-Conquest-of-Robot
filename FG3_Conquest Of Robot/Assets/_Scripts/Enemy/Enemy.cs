@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent (typeof(NavMeshAgent))]
 [RequireComponent(typeof(GunController))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Enemy : LivingEntity
 {
     [SerializeField]
     protected Enemy_SO enemy_SO;
-    public enum State { Idle, Chasing, Attacking};
+
+    protected Rigidbody2D mRig;
+    public enum State { Idle, Chasing, Attacking };
     State currentState;
 
-    NavMeshAgent pathFinder;
+    //NavMeshAgent pathFinder;
     Transform target;
 
     LivingEntity targetEntity;
@@ -23,26 +25,20 @@ public class Enemy : LivingEntity
 
     bool hasTarget;
 
-    // set properties from SO
-    /*private void Awake()
-    {
-        // health
-        this.startingHealth = this.enemy_SO.health;
-        // disAttack
-        this.attackDistance = this.enemy_SO.disAttack;
-        // speedWalk
-        this.pathFinder.speed = this.enemy_SO.speedWalk;
-        // Gun
-        this.gunController = GetComponent<GunController>();
-        this.gunController.startingGun = this.enemy_SO.gun;
-    }*/
+    public Animator anim;
+    [SerializeField]
+    private bool moving;
+    [SerializeField]
+    Vector2 dirToTarget;
+    float dirAnim;
 
     protected override void Start()
     {
         base.Start();
-        this.pathFinder = GetComponent<NavMeshAgent>();
+        /*this.pathFinder = GetComponent<NavMeshAgent>();
         this.pathFinder.updateRotation = false;
         this.pathFinder.updateUpAxis = false;
+        this.pathFinder.updatePosition = false;*/
 
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
@@ -53,18 +49,17 @@ public class Enemy : LivingEntity
             this.targetEntity = this.target.GetComponent<LivingEntity>();
             this.targetEntity.OnDeath += this.OnTargetDeath;
 
-            StartCoroutine(this.UpdatePath());
+            //StartCoroutine(this.UpdatePath());
         }
 
         this.gunController = GetComponent<GunController>();
 
-        this.SetProperties();
-    }
+        this.mRig = GetComponent<Rigidbody2D>();
 
-    protected override void Die()
-    {
-        this.OnDeath += FindObjectOfType<Spawner>().OneEnemyDeath;
-        base.Die();
+        this.SetProperties();
+
+        // Animate
+        this.anim = GetComponent<Animator>();
     }
 
     void SetProperties()
@@ -74,10 +69,74 @@ public class Enemy : LivingEntity
         // disAttack
         this.attackDistance = this.enemy_SO.disAttack;
         // speedWalk
-        this.pathFinder.speed = this.enemy_SO.speedWalk;
+        //this.pathFinder.speed = this.enemy_SO.speedWalk;
         // Gun
         this.gunController.startingGun = this.enemy_SO.gun;
         this.gunController.EquipGun(this.gunController.startingGun);
+    }
+
+    private void Update()
+    {
+        this.dirToTarget = (this.target.position - transform.position);
+        this.dirToTarget.Normalize();
+
+        if (this.hasTarget)
+        {
+            this.Attack();
+        }
+        this.Animate();
+        //this.MovetoTarget();
+    }
+
+    private void FixedUpdate()
+    {
+       /* if (this.moving)
+        {
+            this.mRig.MovePosition(this.mRig.position + dirToTarget * this.enemy_SO.speedWalk * Time.fixedDeltaTime);
+        }
+        else this.mRig.velocity = Vector2.zero;*/
+
+        this.MovetoTarget();
+    }
+
+    protected virtual void MovetoTarget()
+    {
+        if (this.target != null)
+        {
+            float disToTarget = Vector2.Distance(transform.position, this.target.position);
+            if (disToTarget > this.enemy_SO.disAttack)
+            {
+                this.currentState = State.Chasing;
+                this.moving = true;
+
+                //this.dirToTarget = (this.target.position - transform.position).normalized;
+                Vector2 moveVelocity = dirToTarget * this.enemy_SO.speedWalk * Time.fixedDeltaTime;
+                //Vector2 moveVelocity = dirToTarget * this.enemy_SO.speedWalk * Time.deltaTime;
+                this.mRig.MovePosition(this.mRig.position + moveVelocity);
+            }
+            else if (disToTarget < this.enemy_SO.disAttack)
+            {
+                this.currentState = State.Attacking;
+                this.moving = false;
+                this.mRig.velocity = Vector2.zero;
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+    private void Animate()
+    {
+        //this.moving = (Mathf.Abs(this.dirToTarget.normalized.magnitude) > .1f) ? true : false;
+        this.anim.SetBool("Moving", this.moving);
+
+        if (this.dirToTarget.x < 0) this.dirAnim = -1f;
+        else if (this.dirToTarget.x > 0) this.dirAnim = 1f;
+        this.anim.SetFloat("X", this.dirAnim);
+
+        this.anim.SetBool("Moving", this.moving);
     }
 
     void OnTargetDeath()
@@ -86,13 +145,13 @@ public class Enemy : LivingEntity
         this.currentState = State.Idle;
     }
 
-    private void Update()
+    protected override void Die()
     {
-        if (this.hasTarget)
-        {
-            this.Attack();
-        }
+        this.OnDeath += FindObjectOfType<Spawner>().OneEnemyDeath;
+        base.Die();
     }
+
+    
 
     private void Attack()
     {
@@ -102,7 +161,7 @@ public class Enemy : LivingEntity
         if (sqrDisToTarget <= Mathf.Pow(this.attackDistance, 2))
         {
             this.currentState = State.Attacking;
-            this.pathFinder.enabled = false;
+            //this.pathFinder.enabled = false;
             Vector2 mPos = new Vector2(transform.position.x, transform.position.y);
             Vector2 targetPos = new Vector2(this.target.position.x, this.target.position.y);
             Vector2 lookDir = targetPos - mPos;
@@ -116,11 +175,11 @@ public class Enemy : LivingEntity
         else
         {
             this.currentState = State.Chasing;
-            this.pathFinder.enabled = true;
+            //this.pathFinder.enabled = true;
         }
     }
 
-    IEnumerator UpdatePath()
+    /*IEnumerator UpdatePath()
     {
         float refresRate = 0f;
 
@@ -137,5 +196,5 @@ public class Enemy : LivingEntity
             }
             yield return new WaitForSeconds(refresRate);
         }
-    }
+    }*/
 }

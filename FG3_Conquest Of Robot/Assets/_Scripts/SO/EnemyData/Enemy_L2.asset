@@ -15,5 +15,5 @@ MonoBehaviour:
   enemyName: Enemy Level 2
   health: 7
   disAttack: 3
-  speedWalk: 4
+  speedWalk: 1
   gun: {fileID: 8082378086326017534, guid: a5545858607a7b14c9d5119ea4db10e2, type: 3}

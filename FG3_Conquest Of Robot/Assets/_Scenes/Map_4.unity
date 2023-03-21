@@ -189,7 +189,7 @@ PrefabInstance:
     - target: {fileID: 6161045079930786731, guid: 3e994165089dcab44ba2fc70f5d19742, type: 3}
       propertyPath: waves.Array.data[0].enemy
       value: 
-      objectReference: {fileID: 270221315932247628, guid: ac6caa34650555d4f95d0e9c5ea9d7a9, type: 3}
+      objectReference: {fileID: 270221315932247628, guid: 7a86f4e8ba1ab2d4f912bc6e90aef418, type: 3}
     - target: {fileID: 6161045079930786731, guid: 3e994165089dcab44ba2fc70f5d19742, type: 3}
       propertyPath: waves.Array.data[1].enemy
       value: 
@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 270221315932247628, guid: 7a86f4e8ba1ab2d4f912bc6e90aef418, type: 3}
     - target: {fileID: 6161045079930786731, guid: 3e994165089dcab44ba2fc70f5d19742, type: 3}
       propertyPath: waves.Array.data[0].enemyCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6161045079930786731, guid: 3e994165089dcab44ba2fc70f5d19742, type: 3}
       propertyPath: waves.Array.data[2].enemyCount
@@ -281,7 +281,7 @@ PrefabInstance:
       objectReference: {fileID: 1253428157}
     - target: {fileID: 5315175132607490429, guid: 7efb68b977c17b2458ca706c4c90e5e2, type: 3}
       propertyPath: startingHealth
-      value: 3
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7130732684176099309, guid: 7efb68b977c17b2458ca706c4c90e5e2, type: 3}
       propertyPath: m_Name
@@ -524,6 +524,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2698581503486506978, guid: ac761e99771b2b041b74123a84399d2a, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: e3f35671c25505241b9f54022a05f90f, type: 2}
     - target: {fileID: 2698581503486506979, guid: ac761e99771b2b041b74123a84399d2a, type: 3}
       propertyPath: m_RootOrder
       value: 2

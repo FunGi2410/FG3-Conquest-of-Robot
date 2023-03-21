@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1434630284999669692}
   - component: {fileID: 1434630284999669691}
   - component: {fileID: 6903280658352632140}
+  - component: {fileID: 2155870836109828910}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -8031,6 +8032,22 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!114 &2155870836109828910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434630284999669689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1434630285220303066
 GameObject:
   m_ObjectHideFlags: 0
@@ -8090,6 +8107,7 @@ GameObject:
   - component: {fileID: 1434630285569433771}
   - component: {fileID: 1434630285569433773}
   - component: {fileID: 1434630285569433772}
+  - component: {fileID: 2411685662702273959}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -53503,6 +53521,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &2411685662702273959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434630285569433770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &2718344716891939007
 GameObject:
   m_ObjectHideFlags: 0

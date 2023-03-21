@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ce20eb2b8626546aa69a84dbe1e546, type: 3}
   m_Name: Enemy_L1
   m_EditorClassIdentifier: 
-  enemyrName: Level 1
+  enemyName: 
   health: 2
   disAttack: 2
-  speedWalk: 3
+  speedWalk: 1
   gun: {fileID: 8082378086326017534, guid: 320420faf645047459209a6ad1f09034, type: 3}
