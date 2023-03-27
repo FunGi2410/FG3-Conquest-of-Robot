@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c032592a4c11e4a8f554d24cd2530b, type: 3}
   m_Name: EnemyBullet_1
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
   dame: 1
-  timeLife: 1
+  timeLife: 3
   collisionMask:
     serializedVersion: 2
     m_Bits: 256

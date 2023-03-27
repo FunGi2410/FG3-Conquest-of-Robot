@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_L2
   m_EditorClassIdentifier: 
   enemyName: Enemy Level 2
-  health: 7
+  health: 5
   disAttack: 3
-  speedWalk: 1
+  speedWalk: 1.3
   gun: {fileID: 8082378086326017534, guid: a5545858607a7b14c9d5119ea4db10e2, type: 3}

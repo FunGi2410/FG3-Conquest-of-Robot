@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 2dcdf726a9816fc4dbda09b32784e51d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa5b1de747903684e87088e4d88b811e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8328782131950019178}
   - component: {fileID: 8082378086326017534}
   m_Layer: 0
-  m_Name: GunEnemy2
+  m_Name: Gun_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550fab42d1f80c644b34c1a0f44b9ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun_SO: {fileID: 11400000, guid: 2c80492bfcdc84e42b655ba765f0878d, type: 2}
+  gun_SO: {fileID: 11400000, guid: 9a33b7ef5f62d1c4b975cc0abf01f78d, type: 2}
   muzzle: {fileID: 6250724907868941521}
   projectile: {fileID: 0}
   fireRate: 0

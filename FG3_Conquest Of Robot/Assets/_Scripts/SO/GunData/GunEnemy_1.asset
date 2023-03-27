@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GunEnemy_1
   m_EditorClassIdentifier: 
   gunName: Gun Enemy 1
-  projectile: {fileID: 7652007551278108794, guid: 55b65fe2da5163647b83b9049176b4db, type: 3}
+  projectile: {fileID: 7652007551278108794, guid: 31f286f142a898a42a9d8b80caca7d2c, type: 3}
   fireRate: 1

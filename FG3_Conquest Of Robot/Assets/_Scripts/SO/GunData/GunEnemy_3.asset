@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c032592a4c11e4a8f554d24cd2530b, type: 3}
-  m_Name: PlayerBullet_1
+  m_Script: {fileID: 11500000, guid: fe134b1848e41db41a8e133945c58e62, type: 3}
+  m_Name: GunEnemy_3
   m_EditorClassIdentifier: 
-  speed: 15
-  dame: 1
-  timeLife: 1
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 128
+  gunName: Gun Enemy 3
+  projectile: {fileID: 7652007551278108794, guid: c445107132f06094587e6062f158ea35, type: 3}
+  fireRate: 3
