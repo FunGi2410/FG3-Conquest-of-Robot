@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550fab42d1f80c644b34c1a0f44b9ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun_SO: {fileID: 11400000, guid: 2c80492bfcdc84e42b655ba765f0878d, type: 2}
+  gun_SO: {fileID: 11400000, guid: 697889034300a8242b0f40efd1e1933b, type: 2}
   muzzle: {fileID: 6250724907868941521}
   projectile: {fileID: 0}
   fireRate: 0

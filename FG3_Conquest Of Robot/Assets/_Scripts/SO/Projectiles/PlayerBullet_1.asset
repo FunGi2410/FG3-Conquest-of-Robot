@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c032592a4c11e4a8f554d24cd2530b, type: 3}
   m_Name: PlayerBullet_1
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 8
   dame: 1
   timeLife: 1
   collisionMask:
